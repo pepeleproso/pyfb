@@ -35,3 +35,17 @@ for work in me.work:
     print "- %s" % work.employer.name
 
 print "-" * 40
+
+#Customizing operations using params
+#See https://developers.facebook.com/docs/reference/api/ for a complete list of params
+#Gets status about myself
+params = {}
+
+#Parameters that enable you to filter and page through data (limit, offset)
+params["limit"] = 1
+params["offset"] = 1
+
+#You can restrict the fields returned in a search using the fields parameter
+params["fields"] = "message"
+message = facebook.get_statuses("me", params)[0].message
+print message
